@@ -1,0 +1,3 @@
+[submodule "tnt-tg-bot"]
+	path = tnt-tg-bot
+	url = https://github.com/uriid1/tnt-tg-bot.git

@@ -1,0 +1,21 @@
+iproto:
+  listen:
+    - uri: '0.0.0.0:3301'
+
+groups:
+  group001:
+    replicasets:
+      replicaset001:
+        instances:
+          instance001:
+            database:
+              mode: rw
+              use_mvcc_engine: true
+            iproto:
+              listen:
+                - uri: '0.0.0.0:3301'
+            memtx:
+              memory: 268435456  # 256MB
+
+app:
+  file: 'app.lua'
