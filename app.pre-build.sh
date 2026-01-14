@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+source "$(dirname "$0")/tnt-tg-bot/scripts/lib/customize.sh"
+source "$(dirname "$0")/tnt-tg-bot/scripts/lib/tt-tools.sh"
 
-echo
-echo "------------------------"
-echo "Install Rocks...        "
-echo "------------------------"
+# Bot rocks
+./tnt-tg-bot/tnt-tg-bot.pre-build.sh
 
 # github.com/uriid1/argp
-echo "Install: argp"
-luarocks install --local \
-  --tree=$PWD/.rocks \
-  --lua-version 5.1 \
-  argp
+install_luarocks "argp" "1.1-0"
