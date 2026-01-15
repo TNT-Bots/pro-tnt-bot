@@ -11,9 +11,15 @@ groups:
             database:
               mode: rw
               use_mvcc_engine: true
+            
             iproto:
               listen:
                 - uri: '0.0.0.0:3301'
+            
+            log:
+              level: error
+              to: file
+
             memtx:
               memory: 268435456  # 256MB
 
