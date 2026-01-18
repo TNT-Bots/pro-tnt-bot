@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 
-source "$(dirname "$0")/tnt-tg-bot/scripts/lib/customize.sh"
-source "$(dirname "$0")/tnt-tg-bot/scripts/lib/tt-tools.sh"
+ROOT_DIR="$(
+  cd "$(dirname "$0")" && pwd
+)"
 
+source "${ROOT_DIR}/tnt-tg-bot/bin/lib/tools.sh"
+
+#
 # Bot rocks
-./tnt-tg-bot/tnt-tg-bot.pre-build.sh
+#
+bash "$ROOT_DIR/tnt-tg-bot/tnt-tg-bot.pre-build.sh"
 
+#
+# App rocks
+#
 # github.com/uriid1/argp
-install_luarocks "argp" "1.1-0"
+tools::luarocks_install "argp" "1.1-0"
