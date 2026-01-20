@@ -44,7 +44,7 @@ function Role.init()
     end
   end)
 
-  fb:name('increaseUserStats')
+  fb:name('increase_user_stats')
 end
 
 return Role

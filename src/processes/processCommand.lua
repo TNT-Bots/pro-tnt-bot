@@ -10,9 +10,14 @@ local userService = require('src.services.users')
 -- TODO: Обработчик таймаута нажатий на callback
 -- TODO: Антифлуддер
 
+local PLEASE_WAIT_TEXT = [[
+Сейчас меня обновляет разработчик
+<b>Пожалуйста подождите...</b> ⏳
+]]
+
 local function notify_maintModeMsg(ctx)
   bot:sendMessage {
-    text = 'Сейчас меня обновляет разработчик :>\n<b>Пожалуйста подождите</b> ❤️',
+    text = PLEASE_WAIT_TEXT,
     chat_id = ctx:getChatId(),
     reply_to_message_id = ctx:getMessageId()
   }
@@ -20,7 +25,7 @@ end
 
 local function notify_maintModeAnswerQuery(ctx)
   bot:answerCallbackQuery {
-    text = 'Сейчас меня обновляет разработчик :>\n<b>Пожалуйста подождите</b> ❤️',
+    text = PLEASE_WAIT_TEXT,
     callback_query_id = ctx:getQueryId(),
     show_alert = true
   }

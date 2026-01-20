@@ -6,29 +6,17 @@ package.path = package.path .. ";.rocks/share/lua/5.1/?.lua"
 package.path = package.path .. ";.rocks/share/lua/5.1/?/init.lua"
 
 -- ----------------------------
--- Парсинг аргументов
--- ----------------------------
-local argp = require('argp')
-
-local parser = argp:new({
-  name = 'Telegram bot',
-  description = 'see github',
-  version = '1.0'
-})
-
-parser:options({
-  {
-    short = 'h', long = 'help',
-    description = 'Display this help and exit'
-  }
-})
-
--- ----------------------------
 -- Конфигурирование бота
 -- ----------------------------
-local log = require('bot.libs.logger')
-local config = require('conf.config')
+local log = require('log')
+
+-- TODO: Вынести уровень и запись лога в env
+log.cfg {
+  level = 'verbose'
+}
+
 local bot = require('bot')
+local config = require('conf.config')
 
 bot:cfg {
   token = os.getenv('BOT_TOKEN'),

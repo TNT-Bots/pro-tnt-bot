@@ -16,9 +16,9 @@ groups:
               listen:
                 - uri: '0.0.0.0:3301'
             
-            log:
-              level: error
-              to: file
+            # log:
+            #   level: verbose
+            #   to: file
 
             memtx:
               memory: 268435456  # 256MB
